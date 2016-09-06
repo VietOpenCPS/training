@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.meera.dbservice.model.Student">
+		<field name="studentId" type="long" />
+		<field name="firstName" type="String" />
+		<field name="lastName" type="String" />
+		<field name="studentAge" type="int" />
+		<field name="studentGender" type="int" />
+		<field name="studentAddress" type="String" />
+	</model>
+</model-hints>

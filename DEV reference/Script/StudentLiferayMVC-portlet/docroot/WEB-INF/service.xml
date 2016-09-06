@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" 
+"http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="com.meera.dbservice">
+	<author>LiferaySavvy</author>
+	<namespace>LS</namespace>
+	<entity name="Student" local-service="true" remote-service="true">
+		<!-- PK fields -->
+		<column name="studentId" type="long" primary="true" />
+		<column name="firstName" type="String" />
+		<column name="lastName" type="String" />
+		<column name="studentAge" type="int" />
+		<column name="studentGender" type="int" />
+		<column name="studentAddress" type="String" />
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="studentId" />
+		</order>
+		<!-- Finder methods -->
+		<finder name="Gender" return-type="Collection">
+			<finder-column name="studentGender"/>
+		</finder>
+		<!-- Finder methods -->
+		<finder name="Gender_Age" return-type="Collection">
+			<finder-column name="studentGender"/>
+			<finder-column name="studentAge"/>
+		</finder>
+		<finder name="byStudentId" return-type="Student" unique="true" db-index="true">
+			<finder-column name="studentId"/>
+		</finder>
+		<finder name="femaleStudents" return-type="Collection" where="studentGender!=1">
+			<finder-column name="studentAge"/>
+		</finder>
+		<finder name="firstNameLike" return-type="Collection">
+			<finder-column name="firstName" comparator="LIKE"/>
+		</finder>
+		<finder name="majorStudentGreaterThan" return-type="Collection">
+			<finder-column name="studentAge" comparator="&gt;"/>
+		</finder>
+		<finder name="minorStudentLessThan" return-type="Collection">
+			<finder-column name="studentAge" comparator="&lt;"/>
+		</finder>
+		<finder name="mulipleAges" return-type="Collection">
+			<finder-column name="studentAge" arrayable-operator="OR" comparator="=" />
+		</finder>
+	</entity>
+</service-builder>
