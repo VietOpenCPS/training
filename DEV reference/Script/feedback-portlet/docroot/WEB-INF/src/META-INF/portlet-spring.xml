@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="org.opencps.feedback.service.FeedBackLocalService" class="org.opencps.feedback.service.impl.FeedBackLocalServiceImpl" />
+	<bean id="org.opencps.feedback.service.FeedBackService" class="org.opencps.feedback.service.impl.FeedBackServiceImpl" />
+	<bean id="org.opencps.feedback.service.persistence.FeedBackPersistence" class="org.opencps.feedback.service.persistence.FeedBackPersistenceImpl" parent="basePersistence" />
+</beans>

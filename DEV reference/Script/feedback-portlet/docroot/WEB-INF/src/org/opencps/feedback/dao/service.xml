@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="org.opencps.feedback">
+	<author>khoavd</author>
+	<namespace>feedback</namespace>
+
+	<entity name="FeedBack" local-service="true" remote-service="true" table="opencps_feedback">
+
+		<!-- PK fields -->
+
+		<column name="feedbackId" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="fullName" type="String" />
+		<column name="email" type="String" />
+		<column name="feedBack" type="String" />
+
+		<!-- Order -->
+
+		<order by="desc">
+			<order-column name="createDate" order-by="desc"/>
+		</order>
+
+		<!-- Finder methods -->
+        <finder name="Email" return-type="FeedBack">
+            <finder-column name="email"></finder-column>
+        </finder>
+	</entity>
+</service-builder>
